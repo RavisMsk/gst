@@ -211,4 +211,4 @@ func parseGstStructure(s *C.GstStructure) (name string, fields glib.Params) {
 	return
 }
 
-var CLOCK_TIME_NONE = uint64(C.GST_CLOCK_TIME_NONE)
+var CLOCK_TIME_NONE = uint64(0)
