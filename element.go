@@ -63,12 +63,6 @@ func (e *Element) AsElement() *Element {
 	return e
 }
 
-func (e *Element) Seek(pos int64) bool {
-	return C.gst_element_seek(
-		e.g(), 1.0, 3, 1, 1, C.longlong(pos), 0, C.longlong(0xffffffffffffffff),
-	) != 0
-}
-
 func (e *Element) Link(next ...*Element) bool {
 	for _, dst := range next {
 		if C.gst_element_link(e.g(), dst.g()) == 0 {
