@@ -65,7 +65,7 @@ func (e *Element) AsElement() *Element {
 
 func (e *Element) Seek(pos int64) bool {
 	return C.gst_element_seek(
-		e.g(), 1.0, 3, 1, 1, C.longlong(pos), 0, C.longlong(18446744073709551615),
+		e.g(), 1.0, 3, 1, 1, C.longlong(pos), 0, C.longlong(0x10000000000000000),
 	) != 0
 }
 
