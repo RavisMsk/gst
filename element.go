@@ -64,22 +64,8 @@ func (e *Element) AsElement() *Element {
 }
 
 func (e *Element) Seek(pos int64) bool {
-	// gst_element_seek (GstElement * element,
-	//             gdouble rate,
-	//             GstFormat format,
-	//             GstSeekFlags flags,
-	//             GstSeekType start_type,
-	//             gint64 start,
-	//             GstSeekType stop_type,
-	// 						gint64 stop)
-	// 	if (!gst_element_seek(play,
-	// 		1.0, GST_FORMAT_TIME, GST_SEEK_FLAG_FLUSH,
-	// 		GST_SEEK_TYPE_SET, 0,
-	// 		GST_SEEK_TYPE_NONE, GST_CLOCK_TIME_NONE)) {
-	// 		g_print("Seek failed!\n");
-	// 	}
 	return C.gst_element_seek(
-		e.g(), 1.0, 3, 1, 1, pos, 0, 0,
+		e.g(), 1.0, 3, 1, 1, C.longlong(pos), 0, 0,
 	) != 0
 }
 
